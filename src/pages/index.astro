@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { get_count, increment } from './shared';
+import { get_count, increment } from './redis';
 
 const proj = "astro-deno-deploy"
 
-increment()
-const current_count = get_count()
+await increment()
+const current_count = await get_count()
 
 const versions = Deno.version
 console.log(`index.astro> Deno ${versions.deno} ; v8 ${versions.v8} ; typescript ${versions.typescript}`)
