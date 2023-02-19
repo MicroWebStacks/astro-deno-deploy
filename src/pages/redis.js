@@ -4,9 +4,9 @@ let redis = null
 
 async function init(){
     redis = await connect({
-      hostname: "redis-19765.c55.eu-central-1-1.ec2.cloud.redislabs.com",
-      port: 19765,
-      password: Deno.env.get("REDIS_COUNTER")
+      hostname: Deno.env.get("REDIS_URL"),
+      port: parseInt(Deno.env.get("REDIS_PORT")),
+      password: Deno.env.get("REDIS_PASSWORD")
     });
 }
 
